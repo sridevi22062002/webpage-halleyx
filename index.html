@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drag and Drop Form Builder</title>
+  
+
+  <script src="script.js"></script>
+  <style>
+    body {
+  font-family: sans-serif;
+}
+#drop-target {
+  width: 1256px;
+  height: 600px;
+  margin-left: 4px;
+}
+
+#element-palette {
+  width: 180px;
+  float: left;
+}
+
+.element {
+  cursor: move;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+.choose {
+  background-color:;
+}
+.draggable-elements {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.draggable {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+
+.dropzone {
+  border: 1px dashed #ccc;
+  padding: 10px;
+  width: 100%;
+}
+
+.checkbox_button {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox_button p {
+  margin-right: 10px;
+}
+
+.Table_button {
+  display: flex;
+  align-items: center;
+}
+
+.Table_button p {
+  margin-right: 10px;
+}
+
+.table_menu {
+  width: 100%;
+}
+
+input[type="url"] {
+  width: 100%;
+}
+
+input[type="file"] {
+  width: 100%;
+}
+
+.button_button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+}
+.link1{
+    padding: 0px 80px 0px;
+    color: black;
+}
+#flex{
+    display: flex;
+}
+.element img{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+header{
+    height: 60px;
+    padding-top: 8px;
+    padding-left: 24px;
+    position: relative;
+    margin-left: 4px;
+    font-size: 24px;
+    padding-top: 2%;
+}
+#publish{
+ position: absolute;
+ top: 8;
+ right:128px;
+ width: 120px;
+ height: 40px;
+ background-color:lightgreen;
+ border: 1px solid lightgreen;
+ cursor: pointer;
+}
+#preview{
+    position: absolute;
+    top: 8;
+    right: 0;
+    width: 120px;
+    height: 40px;
+    border: 1px solid lightgreen;
+    background-color: white;
+    cursor: pointer;
+}
+#r1c1,#r1c2{
+    width: 680px;
+    height: 32px;
+}
+
+#r2c1,#r2c2{
+    width:680px;
+    height:600px ; 
+}
+td{
+    border: 1px dashed black;
+    position: relative;
+}
+#clear{
+    position: absolute;
+ bottom: 16px;
+ right: 16px;
+ width: 72px;
+ height: 24px;
+ background-color: white;
+ border-color: lightgreen;
+}
+#save{
+    position: absolute;
+ bottom: 16px;
+ right: 96px;
+ width: 72px;
+ height: 24px;
+ background-color: lightgreen;
+ border-color: lightgreen;
+}
+table_menu{
+    height:50px;
+    width:250px;
+}
+.file{
+    padding-top:15px;
+
+}       
+.checkbox_button  {
+    display: flex;
+    align-items: center;
+    }
+
+.checkbox_button  label {
+    margin-right: 10px; 
+    }
+.choose{
+    margin:20PX;
+}
+.Table_button{
+    display: flex;
+    flex-direction: row;
+}
+p{
+    margin-right: 75px;
+}
+.name{
+    height: 40px;
+    width: 500px;
+}
+.toolbox-item {
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+  }
+
+  </style>
+</head>
+<body>
+<div id="flex">
+  <div id="element-palette">
+    <div class="element" draggable="true" ondragstart="drag(event)"> <img src="https://cdn0.iconfinder.com/data/icons/black-box/64/layout-column-aside-512.png"width=24 height=20 alt="Layout">Layout</div>
+    <div class="element" draggable="true" ondragstart="drag(event)"><img src="https://cdn-icons-png.flaticon.com/512/5379/5379295.png"width=30 height=30 alt="Label">Label</div>
+    <div class="element" draggable="true" ondragstart="drag(event)"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8szhrnC6vg6bVYwo5Fubq6a8IeKvI922KnumXH6ZzdnTUAjK_oNKCdEP5v59uC-bFKdE&usqp=CAU"width=24 height=20  alt="Button">Button</div>
+    
+    <div class="element" draggable="true" ondragstart="drag(event)"><img src="https://www.svgrepo.com/show/310163/textbox-align-middle.svg" width=20 height=20 alt="Textbox">Text Box</div>
+    <div class="element" draggable="true" ondragstart="drag(event)"><img src="https://icons.veryicon.com/png/o/miscellaneous/docs/dropdown-2.png" width=20 height=20 alt="dropdown">Dropdown</div>
+    <div class="element" draggable="true" ondragstart="drag(event)"><img src="https://static.thenounproject.com/png/239523-200.png"width=24 height=20 alt="checkBox">Check Box</div>
+    <div class="element" draggable="true" ondragstart="drag(event)"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Ic_radio_button_on_48px.svg/1200px-Ic_radio_button_on_48px.svg.png" width=24 height=20 alt="Radio Button">Radio Button</div>
+    <div class="element" draggable="true" ondragstart="drag(event)"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqAMQRrCwgXjzyLG1qfvqIpPUBnL3uXSqaI8XFKDw&s"width=24 height=20 alt="Table">Table</div>
+
+
+
+    <div class="element" draggable="true" ondragstart="drag(event)"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5_PJ_9EhDpTjJlw9Q_yXJewAEh1n0Kblr0g&usqp=CAU"width=24 height=20  alt="Navigation Link">Navigation Link</div>
+    
+    
+
+     <div class="element" draggable="true" ondragstart="drag(event)"><img src="https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-picture-thin.png" width=20 height=20 alt="Image">Image</div>
+  </div>
+  <div>
+    <header>
+        Design Mode
+        <input type="button" value="publish" id="publish">
+        <input type="button" value="preview" id="preview">
+    </header>
+  <div id="drop-target" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <table>
+        <tr>
+            <td id="r1c1"></td>
+            <td id="r1c2"></td>
+        </tr>
+        <tr>
+            <td id="r2c1"></td>
+            <td id="r2c2">
+                <input type="button" value="Save" id="save">
+                <input type="button" value="Clear" id="clear">
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+</div>
+</body>
+</html>
